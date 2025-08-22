@@ -22,4 +22,4 @@ const addToDB =(id)=>{
         return storedBookdata;
     }
 }
-export {addToDB};
+export {addToDB,storedBook};
