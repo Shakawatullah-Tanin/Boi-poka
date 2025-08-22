@@ -36,7 +36,7 @@ const handleSortData = (type) => {
     <div>
       <Tabs>
         <details className="dropdown">
-          <summary className="btn m-1">Sort By:{sortData ? sortData : ""}</summary>
+          <summary className="btn mx-auto m-5">Sort By:{sortData ? sortData : ""}</summary>
           <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
             <li>
               <a onClick={() => handleSortData('pages')}>Page</a>

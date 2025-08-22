@@ -1,6 +1,13 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router";
 import { addToDB } from "../../Components/utility/addToDB";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+  
+
+  import { ToastContainer, toast } from 'react-toastify';
+
+const MySwal = withReactContent(Swal);
 
 const BooksDetails = () => {
   const data = useLoaderData();
@@ -10,6 +17,16 @@ const BooksDetails = () => {
 
   const singleBook = data.find((book) => book.bookId === bookId);
   const handleMarksAsRead = (id) => {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 2100,
+    });
+    toast("Wow so easy!");
+  
+
     addToDB(id);
   };
 
@@ -35,6 +52,7 @@ const BooksDetails = () => {
         <hr />
         <div className="w-[50%]">
           <h1 className="text-2xl font-bold">{bookName}</h1>
+            <ToastContainer />
           <p
             className="mb-2
           "
@@ -65,7 +83,12 @@ const BooksDetails = () => {
           </div>
 
           <div className="flex gap-8 mt-4 mb-4">
-            <button onClick={()=>handleMarksAsRead(id)} className="btn btn-active btn-accent">Read</button>
+            <button
+              onClick={() => handleMarksAsRead(id)}
+              className="btn btn-active btn-accent"
+            >
+              Read
+            </button>
             <button className="btn btn-active btn-info">Whislist</button>
           </div>
         </div>
